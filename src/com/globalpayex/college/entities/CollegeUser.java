@@ -21,6 +21,13 @@ public class CollegeUser {
 	public String getDetails() {
 		return String.format("Name : %s \nGender : %s", this.name, this.gender);
 	}
+
+	@Override
+	public String toString() {
+		return "CollegeUser [name=" + name + ", gender=" + gender + "]";
+	}
+	
+	
 	
 	
 	

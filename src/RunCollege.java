@@ -10,7 +10,8 @@ public class RunCollege {
 		Student s = new Student("sagar", 'm', 10, 90);
 		
 		String[] subjects = {"Physics", "Chemistry"};
-		Professor p = new Professor("mehul", 'm', subjects);
+		Professor p = new Professor("mehul", 'm', subjects, 5000.0, 20);
+		System.out.println(p.calculate());
 		
 		System.out.println(i);
 		

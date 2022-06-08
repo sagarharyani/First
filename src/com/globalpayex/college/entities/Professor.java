@@ -1,10 +1,14 @@
 package com.globalpayex.college.entities;
 
-public class Professor extends CollegeUser {
+import com.abc.salary.SalariedIndividual;
+
+public class Professor extends CollegeUser implements SalariedIndividual {
 	
-	String[] subjects;
 	
-	public Professor(String name, char gender, String[] subjects) {
+	double costPerDay;
+	int workingDays;
+	String[] subjects = {"Physics, Chemistry"};	
+	public Professor(String name, char gender, String[] subjects, double costPerDay, int workingDays ) {
 		
 		//this --> Professor object
 		//super(); //calls the super class constructor
@@ -16,6 +20,18 @@ public class Professor extends CollegeUser {
 		this.name = name;
 		this.gender = gender;
 		this.subjects = subjects;
+	}
+
+	@Override
+	public int getNoOfDaysWorked() {
+		// TODO Auto-generated method stub
+		return this.workingDays;
+	}
+
+	@Override
+	public double getPricePerDay() {
+		// TODO Auto-generated method stub
+		return this.costPerDay;
 	}
 	
 	

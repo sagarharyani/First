@@ -1,69 +1,58 @@
 
 public class Student {
-	
-	//instance attributes
-	
-	String name;
-	char gender;
-	int roll;
-	float marks;
-	static int count;
-	
-	Student(String name, char gender, int roll, float marks){
-		this.name = name;
-		this.gender = gender;
-		this.roll = roll;
-		this.marks = marks;
-		Student.count++; //Always use classname to access static variable, its the best practice to do this, classname.staticvarible.
-		
-	}
-	
-	Student(){
-		// calling the parameterized constructor for the same object
-		this("NA", 'M', -1, 0.0f);
-	}
-	
-	
-	String getDetails() {
-		//Implicit parameter called as 'this' -->s1, s2, s3 --> current object
-		//return "Name:" + this.name + "\nGender:" + this.gender + "\nRoll No:" + this.roll + "\nMarks : "+ this.marks;
-		return String.format("Name : %s\nGender : %s\nRoll No  : %s\nMarks : %s\n", this.name, this.gender, this.roll, this.marks);
-		
-	}
-	
-	static Student newInstance(String name, char gender, int roll, float marks) {
-		//System.out.println(this); //no 'this' in a static function
-		return new Student (name, gender, roll, marks);
-	}
-	
-	/*
-	 Internally
-	 String getDetails(Student this) {
-		
-	}
-	
-	 */
-	
-	char getGrading() {
-		char grade;
-		float n = this.marks;
-		if(n < 0 || n>100) {
-			grade =  'I';
+
+		// instance atribute
+		public String name;
+		public char gender;
+		public int roll;
+		public float marks;
+		public static int count;
+
+		public Student() {
+			this("NA", 'n', 12, 0.0f);
 		}
-		else if(n >= 70) {
-			grade = 'A';
+
+		public Student(String name, char gender, int roll, float Marks) {
+			this.name = name;
+			this.roll = roll;
+			this.gender = gender;
+			this.marks = Marks;
+			++Student.count;
 		}
-		else if(n >= 60) {
-			grade = 'B';
+
+		public String getDetails() {
+//					return "Name:" + this.Name + "\nGender:" + this.Gender + "\nRno:" + this.Rno + "\nMarks:" + this.Marks;
+			return String.format("Name:%s\n gender:%s\n Rno:%s\n Marks:%s/n", this.name, this.gender, this.roll, this.marks);
+
 		}
-		else if(n >= 40) {
-			grade = 'C';
+
+		public char getGrade() {
+			float n = this.marks;
+			if (n > 100 || n < 0) {
+				return 'I';
+
+			}
+
+			else if (n >= 70) {
+				return 'a';
+
+			} else if (n >= 60) {
+				return 'b';
+
+			} else if (n >= 50) {
+				return 'c';
+
+			} else {
+				return 'F';
+
+			}
+
 		}
-		else {
-			grade =  'F';
+
+		public static Student newInstance(String Name, char Gender, int Rno, float Marks) {
+			return new Student(Name, Gender, Rno, Marks);
 		}
-		return grade;
-		
-	}
-	
+
 }
+
+
